@@ -1,6 +1,6 @@
-# Algorithmen in Python
+# Algorithmen in Java
 
-Willkommen! Dieses Projekt enthält eine Sammlung klassischer Algorithmen, implementiert in **Python**.  
+Willkommen! Dieses Projekt enthält eine Sammlung klassischer Algorithmen, implementiert in **Java**.  
 Jede Datei steht für einen einzelnen Algorithmus und ist einfach verständlich gehalten – ideal zum Lernen, Üben oder Erweitern.
 
 # Übersicht der enthaltenen Algorithmen
