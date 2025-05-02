@@ -12,27 +12,39 @@ public class CaesarVerschluesselung {
         System.out.print("Gib die Verschiebung ein: ");
         int verschiebung = scanner.nextInt();
 
-        // Verschlüsselten Text ausgeben
+        // Verschlüsseln
         String verschluesselt = caesarVerschluesselung(text, verschiebung);
         System.out.println("Verschlüsselter Text: " + verschluesselt);
+
+        // Entschlüsseln (negativer Shift)
+        String entschluesselt = caesarEntschluesselung(verschluesselt, verschiebung);
+        System.out.println("Entschlüsselter Text: " + entschluesselt);
     }
 
-    // Führt die Caesar-Verschlüsselung durch
+    // Caesar-Verschlüsselung
     public static String caesarVerschluesselung(String text, int verschiebung) {
-        StringBuilder verschluesselt = new StringBuilder();
+        return caesar(text, verschiebung);
+    }
+
+    // Caesar-Entschlüsselung (einfach: negative Verschiebung)
+    public static String caesarEntschluesselung(String text, int verschiebung) {
+        return caesar(text, -verschiebung);
+    }
+
+    // Gemeinsame Caesar-Methode (positiv = verschlüsseln, negativ = entschlüsseln)
+    private static String caesar(String text, int verschiebung) {
+        StringBuilder ergebnis = new StringBuilder();
 
         for (char zeichen : text.toCharArray()) {
             if (Character.isLetter(zeichen)) {
                 char basis = Character.isUpperCase(zeichen) ? 'A' : 'a';
-                // Berechnung mit Modulo für Rotation im Alphabet (26 Buchstaben)
                 char verschoben = (char) ((zeichen - basis + verschiebung + 26) % 26 + basis);
-                verschluesselt.append(verschoben);
+                ergebnis.append(verschoben);
             } else {
-                // Nicht-Buchstaben bleiben unverändert
-                verschluesselt.append(zeichen);
+                ergebnis.append(zeichen);
             }
         }
 
-        return verschluesselt.toString();
+        return ergebnis.toString();
     }
 }
